@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useContext, useReducer } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import Routes from "./Routes"
 import reportWebVitals from './reportWebVitals';
+import { AppContext } from "./Utils/context";
+import appReducer from "./reducer";
+import './index.scss';
+
+
+const App = () => {
+  const initialState = useContext(AppContext);
+  const [state, dispatch] = useReducer(appReducer, initialState);
+  return (<AppContext.Provider value={{ state, dispatch }}>
+    <Routes />
+  </AppContext.Provider>)
+}
 
 ReactDOM.render(
   <React.StrictMode>
