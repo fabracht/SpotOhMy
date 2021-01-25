@@ -5,7 +5,7 @@ import { AppContext } from "../Utils/context";
 
 export default function MainApp(props) {
     const [token, setToken] = useState(props.token);
-    const { state, dispatch } = useContext(AppContext);
+    const { state } = useContext(AppContext);
 
     useEffect(() => {
         setToken(state.token);
